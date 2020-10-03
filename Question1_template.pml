@@ -39,3 +39,8 @@ init{
         run station(1,down[1],up[1]);
     }
 }
+
+
+#define p1 []((busy[0] == true) -> <>(busy[0] == false))
+#define p2 []((busy[1] == true) -> <>(busy[1] == false))
+ltl q {p1 && p2}
