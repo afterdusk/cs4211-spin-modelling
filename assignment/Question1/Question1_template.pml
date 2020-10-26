@@ -40,7 +40,8 @@ init{
     }
 }
 
-
-#define p1 []((busy[0] == true) -> <>(busy[0] == false))
-#define p2 []((busy[1] == true) -> <>(busy[1] == false))
-ltl q {p1 && p2}
+#define p1 []((down[1]?<start>) -> <>(up[1]?<stop>))
+#define p2 []((down[0]?<start>) -> <>(up[0]?<stop>))
+#define p3 []((up[0]?<start>) -> <>(down[0]?<stop>))
+#define p4 []((up[1]?<start>) -> <>(down[1]?<stop>))
+ltl q {p1 && p2 && p3 && p4}

@@ -1,0 +1,11 @@
+never q {    /* !([] ((! ((controlState==2))) || (<> ((controlState==1))))) */
+T0_init:
+	do
+	:: (! ((! ((controlState==2)))) && ! (((controlState==1)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((controlState==1)))) -> goto accept_S4
+	od;
+}

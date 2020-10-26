@@ -1,0 +1,11 @@
+never q {    /* !([] (<> ((len(out)>0)))) */
+T0_init:
+	do
+	:: (! (((len(out)>0)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((len(out)>0)))) -> goto accept_S4
+	od;
+}

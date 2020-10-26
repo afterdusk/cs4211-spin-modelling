@@ -1,0 +1,26 @@
+never q {    /* !(((([] ((! (down[1]?[start])) || (<> (up[1]?[stop])))) && ([] ((! (down[0]?[start])) || (<> (up[0]?[stop]))))) && ([] ((! (up[0]?[start])) || (<> (down[0]?[stop]))))) && ([] ((! (up[1]?[start])) || (<> (down[1]?[stop]))))) */
+T0_init:
+	do
+	:: (! ((! (down[1]?[start]))) && ! ((up[1]?[stop])) && ((! ((! (down[0]?[start])))) || (((! ((! (down[1]?[start])))) || (((! ((! (up[0]?[start])))) || (! ((! (up[1]?[start])))))))))) -> goto accept_S7
+	:: (! ((! (down[0]?[start]))) && ! ((up[0]?[stop])) && ((! ((! (down[0]?[start])))) || (((! ((! (down[1]?[start])))) || (((! ((! (up[0]?[start])))) || (! ((! (up[1]?[start])))))))))) -> goto accept_S12
+	:: (! ((! (up[1]?[start]))) && ! ((down[1]?[stop]))) -> goto accept_S17
+	:: (! ((! (up[0]?[start]))) && ! ((down[0]?[stop]))) -> goto accept_S22
+	:: (1) -> goto T0_init
+	od;
+accept_S7:
+	do
+	:: (! ((up[1]?[stop]))) -> goto accept_S7
+	od;
+accept_S12:
+	do
+	:: (! ((up[0]?[stop]))) -> goto accept_S12
+	od;
+accept_S17:
+	do
+	:: (! ((down[1]?[stop]))) -> goto accept_S17
+	od;
+accept_S22:
+	do
+	:: (! ((down[0]?[stop]))) -> goto accept_S22
+	od;
+}
